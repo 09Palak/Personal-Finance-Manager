@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Finance Manager</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h2>Personal Finance Manager</h2>
+
+<form action="/add" method="POST">
+    <input type="text" name="title" placeholder="Expense Title" required>
+    <input type="number" name="amount" placeholder="Amount" required>
+    <select name="category">
+        <option>Food</option>
+        <option>Travel</option>
+        <option>Shopping</option>
+        <option>Other</option>
+    </select>
+    <button>Add Expense</button>
+</form>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Amount</th>
+        <th>Category</th>
+        <th>Date</th>
+    </tr>
+
+    {% for e in expenses %}
+    <tr>
+        <td>{{e[1]}}</td>
+        <td>₹{{e[2]}}</td>
+        <td>{{e[3]}}</td>
+        <td>{{e[4]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
